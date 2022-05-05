@@ -15,6 +15,10 @@ const User = sequelize.define('user', {
 		type: DataTypes.STRING,
 		allowNull: false
 	},
+	phone: {
+		type: DataTypes.STRING,
+		allowNull: false
+	}
 });
 
 module.exports = { User };
