@@ -2,11 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./db.js');
 const models = require('./models/user.js');
+const cors = require('cors');
 const router = require('./routes/index.js');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use('/api', router);
 
