@@ -43,12 +43,13 @@ class UserService {
 	}
 
 	async deleteUser(userId) {
+		const saveUser = await User.findByPk(userId);
 		const user = await User.destroy({ where: { id: userId } });
 
 		if (!user) {
 			return false;
 		} else {
-			return user;
+			return saveUser;
 		}
 	}
 }
