@@ -39,8 +39,24 @@ const Table = () => {
 						</tr>
 					))}
 				</tbody>
-
-			</table> : <div>Loading...</div>
+			</table> : <table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>...</td>
+						<td>...</td>
+						<td>...</td>
+						<td>...</td>
+					</tr>
+				</tbody>
+			</table>
 		}</div>
 	)
 }
