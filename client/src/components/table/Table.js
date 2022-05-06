@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './table.scss';
 import axios from '../../axios/api';
 
-const Table = ({ persons, setPersons, open, setOpen, data, setData }) => {
+const Table = ({ persons, setPersons, open, setOpen, data, setData, editing, setEditing }) => {
 	const deletePerson = async (user) => {
 		try {
 			const response = await axios.delete(`/user/${user.id}`);
@@ -22,27 +22,13 @@ const Table = ({ persons, setPersons, open, setOpen, data, setData }) => {
 			id: user.id
 		});
 		setOpen(true);
+		setEditing(true)
 	};
 
-	// const editPerson = async (user) => {
-	// 	try {
-	// 		const response = await axios.put(`/user/${user.id}`);
-	// 		setData({
-	// 			...data,
-	// 			name: user.name,
-	// 			email: user.email,
-	// 			phone: user.phone
-	// 		});
-	// 		setPersons(persons.filter(pers => pers.id !== user.id));
-	// 		setOpen(true);
-	// 		console.log(response);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
-
 	const handleOpen = () => {
+		setData({ name: '', email: '', phone: '', id: null })
 		setOpen(true);
+		setEditing(false)
 	}
 
 	return (
