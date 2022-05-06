@@ -7,5 +7,3 @@ const defaultOptions = {
 let instance = axios.create(defaultOptions);
 
 export default instance;
-
-// 'https://morning-everglades-88535.herokuapp.com/api/user'
